@@ -3,8 +3,8 @@
   <metadata>
     <id>stigviewer</id>
     <version>2.15</version>
-    <packageSourceUrl>https://github.com/AnthonyMastrean/chocolateypackages/tree/master/packages/stigviewer</packageSourceUrl>
-    <owners>Anthony Mastrean</owners>
+    <packageSourceUrl>https://github.com/henrikhalt/chocos/tree/master/stigviewer</packageSourceUrl>
+    <owners>henrikhalt</owners>
     <title>STIG Viewer</title>
     <authors>IASE</authors>
     <projectUrl>https://public.cyber.mil/stigs/srg-stig-tools/</projectUrl>
