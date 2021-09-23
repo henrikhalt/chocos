@@ -1,17 +1,21 @@
-﻿$tools = Split-Path -Parent $MyInvocation.MyCommand.Definition
-$content = Join-Path -Path (Split-Path -Parent $tools) -ChildPath 'content'
-$target = Join-Path -Path $content -ChildPath "STIG Viewer\STIG Viewer.exe"
+﻿$StigvVersion      = '2-15'
+$StigvChecksum     = 'AC8CF9E2E0BF73BA0FBD82D151DBC49F387E596ECD060BE84AE5A9C4631D6EF5'
+$StigvChecksumType = 'SHA256'
+$StigvUrl          = "https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_STIGViewer_$($StigvVersion)_Win64.zip"
 
-$shortcutdir = @{$true='CommonPrograms';$false='Programs'}[($PSVersionTable.PSVersion -gt '2.0.0.0')]
-$shortcut = Join-Path ([System.Environment]::GetFolderPath($shortcutdir)) 'STIG Viewer.lnk'
+$Tools             = Split-Path -Parent $MyInvocation.MyCommand.Definition
+$Content           = Join-Path -Path (Split-Path -Parent $tools) -ChildPath 'content'
+$Target            = Join-Path -Path $content -ChildPath 'STIG Viewer\STIG Viewer.exe'
+$Shortcutdir       = @{$true='CommonPrograms';$false='Programs'}[($PSVersionTable.PSVersion -gt '2.0.0.0')]
+$Shortcut          = Join-Path ([System.Environment]::GetFolderPath($shortcutdir)) 'STIG Viewer.lnk'
 
-Install-ChocolateyZipPackage `
-    -PackageName $env:ChocolateyPackageName `
-    -UnzipLocation $content `
-    -Url 'https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_STIGViewer_2-15_Win64.zip' `
-    -Checksum 'AC8CF9E2E0BF73BA0FBD82D151DBC49F387E596ECD060BE84AE5A9C4631D6EF5' `
-    -ChecksumType 'SHA256'
+$InstChocoZipPkgParams = @{
+    PackageName    = $env:ChocolateyPackageName
+    UnzipLocation  = $Content 
+    Url            = $StigvUrl
+    Checksum       = $StigvChecksum
+    ChecksumType   = $StigvChecksumType
+}
+Install-ChocolateyZipPackage @InstChocoZipPkgParams
 
-Install-ChocolateyShortcut `
-    -ShortcutFilePath $shortcut `
-    -TargetPath $target
+Install-ChocolateyShortcut -ShortcutFilePath $Shortcut -TargetPath $Target
