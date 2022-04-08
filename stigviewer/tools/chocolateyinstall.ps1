@@ -1,5 +1,5 @@
-﻿$StigvVersion      = '2-15'
-$StigvChecksum     = 'AC8CF9E2E0BF73BA0FBD82D151DBC49F387E596ECD060BE84AE5A9C4631D6EF5'
+﻿$StigvVersion      = '2-16'
+$StigvChecksum     = 'C1444038B8E0A2617E6B3A56F8218B33B1907C951FCF1C833C83C6F558358AEC'
 $StigvChecksumType = 'SHA256'
 $StigvUrl          = "https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_STIGViewer_$($StigvVersion)_Win64.zip"
 
