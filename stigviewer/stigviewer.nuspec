@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>stigviewer</id>
-    <version>2.15</version>
+    <version>2.16</version>
     <packageSourceUrl>https://github.com/henrikhalt/chocos/tree/master/stigviewer</packageSourceUrl>
     <owners>henrikhalt</owners>
     <title>STIG Viewer</title>
@@ -11,7 +11,7 @@
     <!--<iconUrl>http://cdn.rawgit.com/__REPLACE_YOUR_REPO__/master/icons/example.png</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <docsUrl>https://dl.dod.cyber.mil/wp-content/uploads/stigs/pdf/U_STIG_Viewer_2-x_User_Guide_V1R10.pdf</docsUrl>
-    <tags>security defense harden</tags>
+    <tags>security defense hardening reviewer</tags>
     <summary>Getting to the content of a XCCDF formatted STIG to read and understand the content is not as easy as opening a .doc or .pdf file and reading it. This is a tool which can be used to view the STIGs</summary>
     <description>
 The DoD/DISA STIG Viewer tool provides the capability to view one or more XCCDF (Extensible Configuration Checklist Description Format) formatted STIGs in an easy-to navigate, human-readable format. It is compatible with STIGs developed and published by DISA for the DoD. The purpose of the STIG Viewer is to provide an intuitive graphical user interface that allows ease of access to the STIG content, along with additional search and sort functionality unavailable with the current method of viewing the STIGs (using a style sheet in a web browser). 
