@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <dependency id="dotnetfx" version="4.5" />
   <metadata>
     <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>scap-compliance-checker</id>
@@ -17,6 +18,9 @@
     <tags>SCC SCAP SECURITY COMPLIANCE CHECKER STIG</tags>
     <summary>SCAP Compliance Checker is a SCAP 1.3 compliant security scanner</summary>
     <description>SCAP Compliance Checker is a SCAP 1.3 compliant security scanner</description>
+    <dependencies>
+      <dependency id="dotnetfx" version="4.5" />
+    </dependencies>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />

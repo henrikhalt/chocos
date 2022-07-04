@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <!-- == PACKAGE SPECIFIC SECTION == -->
+    <id>windows-adk-oscdimg</id>
+    <version>10.1</version>
+    <title>Oscdimg.exe of Windows Assessment and Deployment Kit in SystemRoot</title>
+    <authors>Microsoft</authors>
+    <owners>Henrik Halt</owners>
+    <packageSourceUrl>https://github.com/henrikhalt/chocos/tree/master/oscdimg</packageSourceUrl>
+    <licenseUrl>https://forum.acronis.com/sites/default/files/comment_attachments/2016/11/397321-134896.pdf</licenseUrl>
+    <projectUrl>https://docs.microsoft.com/en-us/windows-hardware/get-started/adk-install</projectUrl>
+    <iconUrl>https://raw.github.com/keithga/Chocolatey/master/Resources/win_logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>This package will install the chocolatey package windows-adk (if not already installed), and then copy oscdimg.exe to %windir% so it's in %PATH%.</description>
+    <summary>Hashicorp's Packer requires oscdimg.exe to be in path to image stuff. This package copies oscdimg.exe to %windir% so it's in %PATH%, and thereby discovered by Packer </summary>
+    <releaseNotes />
+    <copyright>Microsoft</copyright>
+    <tags>ADK oscdimg imaging packer</tags>
+    <dependencies>
+      <!-- Could have specified version like below, but this might result in the package breaking more often -->
+      <!-- <dependency id="windows-adk" version="10.1.22000.2" /> -->
+      <dependency id="windows-adk" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>

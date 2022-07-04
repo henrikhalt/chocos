@@ -50,8 +50,10 @@ $sccLic = @"
   SAN DIEGO, CA 92152`n
 "@
 
+# Using less than TLS1.2, the download fails. Ensure TLS1.2 is used
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 # Print the license agreement itself 
-#$sccLic | Write-Warning -WarningAction Continue
 $sccLic | Write-Host -ForegroundColor Yellow
 
 # Unzip the package
