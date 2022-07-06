@@ -63,16 +63,20 @@ else {
 Update-SessionEnvironment
 $EnvPath = $env:PATH
 if ($EnvPath.ToLower().Contains($ADKPath.ToLower())) {
-
-  # Create a control count. We're removing only one element, 
-  # if for some reason an operation failed, we wanna abort the
-  # the operation
+  # remove any instances of ';;' before we count elements
+  $EnvPath = $EnvPath.replace(';;',';')
+  
+  # Create a control count. We're removing only one element, if for 
+  # some reason that doesn't check out, abort the operation
   $ControlCount = (($envPath.split(';')).count-1)
 
+  # remove the path
   $NewPath = $EnvPath.replace("$ADKPath",'')
+
+  # remove the remaining double ';'
   $NewPath = $NewPath.replace(';;',';')
   
-  # Make sure the new value contains one less element than before
+  # Make sure the new value contains only one less element than before
   if (($NewPath.split(';').count) -eq $ControlCount) {
     $VariableType = [System.EnvironmentVariableTarget]::Machine
     Install-ChocolateyEnvironmentVariable -variableName 'Path' -variableValue $NewPath -variableType $VariableType
