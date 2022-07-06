@@ -44,10 +44,10 @@ if ($null -eq $KitsRoot) {
   $PossibleADKPath1 = Join-Path -Path $ProgramFilesx86 -ChildPath "Assessment and Deployment Kit\Deployment Tools\$($env:PROCESSOR_ARCHITECTURE)\Oscdimg"
   $PossibleADKPath2 = Join-Path -Path $ProgramFiles -ChildPath "Assessment and Deployment Kit\Deployment Tools\$($env:PROCESSOR_ARCHITECTURE)\Oscdimg"
 
-  if (Test-Path -Path $PossiblePath1 -ErrorAction Ignore) {
+  if (Test-Path -Path $PossibleADKPath1 -ErrorAction Ignore) {
     [system.string]$ADKPath = $PossibleADKPath1
   }
-  elseif (Test-Path -Path $PossiblePath2 -ErrorAction Ignore) {
+  elseif (Test-Path -Path $PossibleADKPath2 -ErrorAction Ignore) {
     [system.string]$ADKPath = $PossibleADKPath2
   }
   else {
