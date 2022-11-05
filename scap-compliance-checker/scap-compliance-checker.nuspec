@@ -1,11 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
-  <dependency id="dotnetfx" version="4.5" />
   <metadata>
-    <!-- == PACKAGE SPECIFIC SECTION == -->
     <id>scap-compliance-checker</id>
-    <version>5.5</version>
-    <!-- == SOFTWARE SPECIFIC SECTION == -->
+    <version>5.6</version>
     <title>SCAP Compliance Checker</title>
     <authors>Naval Information Warfare Center (NIWC) Atlantic</authors>
     <owners>henrikhalt</owners>
