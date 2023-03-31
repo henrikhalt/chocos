@@ -8,22 +8,12 @@ $hbcdCheckSumType      = 'md5'
 $hbcdDownloadDir       = Join-Path -Path $env:USERPROFILE -ChildPath 'Downloads'
 $hbcdTargetFullName    = Join-Path -Path $hbcdDownloadDir -ChildPath $hbcdFile
 
-$GetChocolateyWebFileParams = @{
-  PackageName    = $hbcdPackageName
-  Url            = $hbcdDownloadUrl
-  FileFullPath   = $hbcdTargetFullName
-  Checksum       = $hbcdCheckSum
-  ChecksumType   = $hbcdCheckSumType
-}
-
-<#
-# May be implemted in the future - how is 'choco install -f' handled?
-if ($Force) {
-  $GetChocolateyWebFileParams += @{
-    ForceDownload = $true
+  $GetChocolateyWebFileParams = @{
+    PackageName    = $hbcdPackageName
+    Url            = $hbcdDownloadUrl
+    FileFullPath   = $hbcdTargetFullName
+    Checksum       = $hbcdCheckSum
+    ChecksumType   = $hbcdCheckSumType
   }
-}
-#>
-
-Write-Verbose "Hiren's BootCD PE x64 ISO file will be downloaded to: $hbcdTargetFullName"
-Get-ChocolateyWebFile @GetChocolateyWebFileParams
+  Write-Verbose "Hiren's BootCD PE x64 ISO file will be downloaded to: $hbcdTargetFullName"
+  Get-ChocolateyWebFile @GetChocolateyWebFileParams
