@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>hbcd</id>
+    <version>1.0.2</version>
+    <title>Hiren's BootCD PE</title>
+    <authors>Hiren and his fantastic community</authors>
+    <owners>henrikhalt</owners>
+    <packageSourceUrl>https://github.com/henrikhalt/chocos/tree/master/hbcd</packageSourceUrl>
+    <projectUrl>https://www.hirensbootcd.org/</projectUrl>
+    <docsUrl>https://www.hirensbootcd.org/usb-booting/</docsUrl>
+    <licenseUrl>https://www.hirensbootcd.org/faq/</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <releaseNotes>https://www.hirensbootcd.org/changelog/</releaseNotes>
+    <tags>boot usb troubleshooting windows-pe</tags>
+    <summary>Hiren's BootCD PE</summary>
+    <description>This package just downloads Hiren's BootCD PE iso-file into your downloads folder. Use Rufus (choco install Rufus) to apply the iso to a USB drive - you only need about 3GB. Hiren's BootCD PE (Preinstallation Environment) is a restored edition of Hiren's BootCD based on Windows 10 PE x64. Since there are no official updates after November 2012, PE version is being developed by Hiren's BootCD fans. It contains the fewest but best free tools. It is being developed for the new age computers, it supports UEFI booting and requires a minimum of 2 GB RAM.</description>
+    <dependencies>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
