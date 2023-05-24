@@ -1,5 +1,5 @@
-﻿$sccVersion            = '5.6'
-$sccZipCheckSum        = 'F459F506360280826CF0E32458E214F8B2E55F4D8815404382C55976364578D7'
+﻿$sccVersion            = '5.7.1'
+$sccZipCheckSum        = '16B9BF8BF6E904E6C7CD7C29A442A9A80E5C873288ACB75173F321B70AE33465'
 
 $ErrorActionPreference = 'Stop';
 $sccUnzipDir           = Join-Path -Path $env:TEMP -ChildPath 'NIWCASCC'
@@ -7,7 +7,6 @@ $sccInstallerDir       = Join-Path -Path $sccUnzipDir -ChildPath "scc-$($sccVers
 $sccInstallExe         = Join-Path -Path $sccInstallerDir -ChildPath "SCC_$($sccVersion)_Windows_Setup.exe"
 $sccSilentFilePath     = Join-Path -Path $sccInstallerDir -ChildPath 'SCC.inf'
 $url                   = "https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/scc-$($sccVersion)_Windows_bundle.zip"
-
 $sccSilentFilecontent  = @"
 [Setup]
 Lang=english
