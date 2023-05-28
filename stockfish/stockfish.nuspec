@@ -10,7 +10,7 @@
     <projectUrl>https://stockfishchess.org/</projectUrl>
     <!-- There are a number of CDN Services that can be used for hosting the Icon for a package. More information can be found here: https://docs.chocolatey.org/en-us/create/create-packages#package-icon-guidelines -->
     <!-- Here is an example using Githack -->
-    <!--<iconUrl>https://stockfishchess.org/images/logo/icon_128x128@2x.png</iconUrl>-->
+    <!--<iconUrl></iconUrl>-->
     <!-- <copyright>Year Software Vendor</copyright> -->
    
     <licenseUrl>https://raw.githubusercontent.com/official-stockfish/Stockfish/master/Copying.txt</licenseUrl>
@@ -23,7 +23,7 @@
     <packageSourceUrl>https://github.com/henrikhalt/chocos/tree/master/stockfish</packageSourceUrl>
     <summary>Strong open source chess engine</summary>
     <description>The Stockfish project started with the open source Glaurung engine, authored by Tord Romstad. In November 2008, Marco Costalba forked the Glaurung 2.1 code and introduced Stockfish 1.0. Tord and Joona Kiiski joined the Stockfish project and the Glaurung project slowly faded away. Meanwhile, Stockfish quickly rose to become the strongest open source chess engine, with frequent updates every few months. Today, it remains one of the strongest engines in the world.</description>
-    <!-- <releaseNotes>__REPLACE_OR_REMOVE__MarkDown_Okay</releaseNotes> -->
+    <!-- <releaseNotes></releaseNotes> -->
     <!-- =============================== -->
   </metadata>
   <files>
