@@ -1,10 +1,10 @@
 ﻿# version specific vars
-$StockFishVersion       = '15.1'
+$StockFishVersion       = '16'
 
 # non-version specific vars
-$StockFishFileBaseName  = "stockfish_$($StockFishVersion)_win_x64_avx2"
 $ChessEnginesFolder     = Join-Path -Path $env:ProgramFiles -ChildPath 'ChessEngines'
-$StockFishInstallFolder = Join-Path -Path $ChessEnginesFolder -ChildPath $StockFishFileBaseName
+$StockFishInstallFolder = Join-Path -Path $ChessEnginesFolder -ChildPath "stockfish_$StockFishVersion"
+
 if (Get-Item -Path $StockFishInstallFolder -ErrorAction Ignore) {
     try {
         Write-Host "Removing the StockFish engine in '$StockFishInstallFolder'..." -ForegroundColor Yellow
