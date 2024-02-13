@@ -9,7 +9,7 @@
     <projectUrl>https://lczero.org/</projectUrl>
     <licenseUrl>https://github.com/LeelaChessZero/lc0?tab=GPL-3.0-1-ov-file#readme</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <projectSourceUrl>https://github.com/LeelaChessZero/</projectSourceUrl>
+    <projectSourceUrl>https://github.com/LeelaChessZero/lc0/</projectSourceUrl>
     <docsUrl>https://lczero.org/dev/</docsUrl>
     <bugTrackerUrl>https://groups.google.com/forum/#!forum/lczero</bugTrackerUrl>
     <tags>lc0 leelachesszero leelachess uci-compliant chess engine chessengine chesscomputer computerchess GPL3</tags>
