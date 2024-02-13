@@ -4,7 +4,7 @@
     <id>lc0-cuda</id>
     <version>0.30.0</version>
     <owners>henrikhalt</owners>
-    <title>lc0-cuda (Install)</title>
+    <title>Leela Chess Zero for Nvidia-Cuda (Install)</title>
     <authors>The LCZero Community</authors>
     <projectUrl>https://lczero.org/</projectUrl>
     <licenseUrl>https://github.com/LeelaChessZero/lc0?tab=GPL-3.0-1-ov-file#readme</licenseUrl>
@@ -12,10 +12,10 @@
     <projectSourceUrl>https://github.com/LeelaChessZero/</projectSourceUrl>
     <docsUrl>https://lczero.org/dev/</docsUrl>
     <bugTrackerUrl>https://groups.google.com/forum/#!forum/lczero</bugTrackerUrl>
-    <tags>lc0 leelachesszero leelachess chess engine chessengine chesscomputer computerchess GPL3</tags>
+    <tags>lc0 leelachesszero leelachess uci-compliant chess engine chessengine chesscomputer computerchess GPL3</tags>
     <packageSourceUrl>https://github.com/henrikhalt/chocos/tree/master/lc0-cuda</packageSourceUrl>
     <summary>Open source neural network based chess engine that can use your GPU. Note: to fully take advantage of your hardware, you need to download a binary compiled for your specific GPU. The pre-compiled binary in this chocolatey package, is for Nvidia GPU's with cuda cores, i.e. RTX 20xx, RTX 30xx and so on. If you don't have a GPU with cuda cores, consider visiting https://lczero.org/play/download/ to select a different binary</summary>
-    <description>Lc0 is a UCI-compliant chess engine designed to play chess via neural network, specifically those of the LeelaChessZero project.
+    <description>Leela Chess Zero (lc0) is a UCI-compliant chess engine designed to play chess via neural network, specifically those of the LeelaChessZero project.
     To get started, visit https://lczero.org/play/quickstart/ 
     Lz0's Discord server is where most of the discussions regarding development and other activity happen. Join it using this link: https://discord.gg/pKujYxD (also known as lc0.org/chat).
     Leela Chess is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
