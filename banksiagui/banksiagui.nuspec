@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>banksiagui</id>
+    <version>0.58</version>
+    <owners>henrikhalt</owners>
+    <title>BanksiaGUI (Install)</title>
+    <authors>nguyenpham (https://github.com/nguyenpham)</authors>
+    <projectUrl>https://banksiagui.com/</projectUrl>
+    <licenseUrl>https://github.com/nguyenpham/Banksia/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/nguyenpham/Banksia</projectSourceUrl>
+    <docsUrl>https://banksiagui.com/forums</docsUrl>
+    <bugTrackerUrl>https://banksiagui.com/forums/viewforum.php?f=6</bugTrackerUrl>
+    <tags>banksiagui BSG uci uci-compliant chess engine chessengine chesscomputer computerchess leela lc0</tags>
+    <packageSourceUrl>https://github.com/henrikhalt/chocos/tree/master/banksiagui</packageSourceUrl>
+    <summary>A Free Chess Graphical User Interface</summary>
+    <description>Banksia GUI is a freeware and a feature rich chess Graphical User Interface for major operating systems (Windows, macOS, Linux). Users can do almost all chess tasks, from playing, creating tournaments, editing games, creating/viewing databases, opening books, connecting other computers on a local network, or to some chess servers to play or run some bots, to analyze/extremely analyze games… All tasks can be done in very easy, quick, and convenient ways in a modern interface with very high customisability.
+The app suits well for almost all people, from amateurs, chess lovers, professional chess players, chess testers to engine developers.
+BanksiaGUI (BSG) is a "LIVE" chess GUI since it has been being developed very fast, intensively and it "listens" carefully to users' feedback. New versions are released almost within only a few weeks.
+Any user can involve, contribute and help. Together we have been building a dream chess GUI. The simplest way is to download and use the program. More use always encourages us from working. The user may also send bug reports, feedback, suggestions. For us, there are no such small/minor ideas/suggestions. All are important and contribute to the strength of BSG, from typos, color corrections, ugly-beautiful feelings, to totally new features. We always appreciate and note down them. The user may also translate BSG to his language - that can help many people from his home country too.
+</description>
+    <releaseNotes>https://banksiagui.com/versions-history/</releaseNotes>
+    <copyright>https://github.com/nguyenpham/Banksia?tab=Apache-2.0-1-ov-file#readme</copyright>
+  </metadata>
+  <files>
+    <!-- this section controls what actually gets packaged into the Chocolatey package -->
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
