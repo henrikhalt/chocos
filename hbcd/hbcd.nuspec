@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>hbcd</id>
-    <version>1.0.2</version>
+    <version>1.0.4</version>
     <title>Hiren's BootCD PE</title>
     <authors>Hiren and his fantastic community</authors>
     <owners>henrikhalt</owners>

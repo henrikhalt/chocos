@@ -1,19 +1,21 @@
-﻿$ErrorActionPreference = 'Stop';
-$hbcdPackageName       = 'hbcd'
-$hbcdVersion           = '1.0.2' # not really in use, but as a ref for the checksum
-$hbcdFile              = 'HBCD_PE_x64.iso'
-$hbcdDownloadUrl       = "https://www.hirensbootcd.org/files/$hbcdFile"
-$hbcdCheckSum          = 'BEC7304FE2EB11DE495B9EA7B73C38AA'
-$hbcdCheckSumType      = 'md5'
-$hbcdDownloadDir       = Join-Path -Path $env:USERPROFILE -ChildPath 'Downloads'
-$hbcdTargetFullName    = Join-Path -Path $hbcdDownloadDir -ChildPath $hbcdFile
+﻿# On updates, the md5-hash must be changed. Everything else can be left as is.
+$HbcdCheckSum          = '9e4880b5bfc2bd5b810fab2418bbad16'
 
-  $GetChocolateyWebFileParams = @{
-    PackageName    = $hbcdPackageName
-    Url            = $hbcdDownloadUrl
-    FileFullPath   = $hbcdTargetFullName
-    Checksum       = $hbcdCheckSum
-    ChecksumType   = $hbcdCheckSumType
+# Leave as is on updates
+$ErrorActionPreference = 'Stop';
+$HbcdPackageName       = 'hbcd'
+$HbcdFile              = 'HBCD_PE_x64.iso'
+$HbcdDownloadUrl       = "https://www.hirensbootcd.org/files/$HbcdFile"
+$HbcdCheckSumType      = 'md5'
+$HbcdDownloadDir       = Join-Path -Path $env:USERPROFILE -ChildPath 'Downloads'
+$HbcdTargetFullName    = Join-Path -Path $HbcdDownloadDir -ChildPath $HbcdFile
+
+$GetChocolateyWebFileParams = @{
+    PackageName    = $HbcdPackageName
+    Url            = $HbcdDownloadUrl
+    FileFullPath   = $HbcdTargetFullName
+    Checksum       = $HbcdCheckSum
+    ChecksumType   = $HbcdCheckSumType
   }
-  Write-Verbose "Hiren's BootCD PE x64 ISO file will be downloaded to: $hbcdTargetFullName"
   Get-ChocolateyWebFile @GetChocolateyWebFileParams
+  Write-Verbose "Hiren's BootCD PE x64 ISO file was downloaded to: $HbcdTargetFullName"
