@@ -13,8 +13,8 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <releaseNotes>https://www.hirensbootcd.org/changelog/</releaseNotes>
     <tags>boot usb troubleshooting windows-pe</tags>
-    <summary>Hiren's BootCD PE</summary>
-    <description>This package just downloads Hiren's BootCD PE iso-file into your downloads folder. Use Rufus (choco install Rufus) to apply the iso to a USB drive - you only need about 3GB. Hiren's BootCD PE (Preinstallation Environment) is a restored edition of Hiren's BootCD based on Windows 10 PE x64. Since there are no official updates after November 2012, PE version is being developed by Hiren's BootCD fans. It contains the fewest but best free tools. It is being developed for the new age computers, it supports UEFI booting and requires a minimum of 2 GB RAM.</description>
+    <summary>Hiren's BootCD PE features a curated selection of the best free tools while being tailored for new-age computers, supporting UEFI booting and requiring a minimum of 4 GB RAM. Equipped with these invaluable tools, you can address various computer-related problems. Notably, it does not include any pirated software; instead, it exclusively contains free and legal software.</summary>
+    <description>This package downloads Hiren's BootCD PE iso-file into your downloads folder. Use Rufus (choco install Rufus) to apply the iso to a USB drive, or boot a vm directly from it in your hypervisor.</description>
     <dependencies>
     </dependencies>
   </metadata>
