@@ -1,24 +1,24 @@
-﻿$sccVersion            = '5.7.1'
-$sccZipCheckSum        = '16B9BF8BF6E904E6C7CD7C29A442A9A80E5C873288ACB75173F321B70AE33465'
+﻿$SccVersion            = '5.8'
+$SccZipCheckSum        = 'A863857BC6160576D1027513AEFB8047A7000DB1F876C868256B17CEBE06D202'
 
 $ErrorActionPreference = 'Stop';
-$sccUnzipDir           = Join-Path -Path $env:TEMP -ChildPath 'NIWCASCC'
-$sccInstallerDir       = Join-Path -Path $sccUnzipDir -ChildPath "scc-$($sccVersion)_Windows"
-$sccInstallExe         = Join-Path -Path $sccInstallerDir -ChildPath "SCC_$($sccVersion)_Windows_Setup.exe"
-$sccSilentFilePath     = Join-Path -Path $sccInstallerDir -ChildPath 'SCC.inf'
-$url                   = "https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/scc-$($sccVersion)_Windows_bundle.zip"
-$sccSilentFilecontent  = @"
+$SccUnzipDir           = Join-Path -Path $env:TEMP -ChildPath 'NIWCASCC'
+$SccInstallerDir       = Join-Path -Path $SccUnzipDir -ChildPath "scc-$($SccVersion)_Windows"
+$SccInstallExe         = Join-Path -Path $SccInstallerDir -ChildPath "SCC_$($SccVersion)_Windows_Setup.exe"
+$SccSilentFilePath     = Join-Path -Path $SccInstallerDir -ChildPath 'SCC.inf'
+$Url                   = "https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/scc-$($SccVersion)_Windows_bundle.zip"
+$SccSilentFilecontent  = @"
 [Setup]
 Lang=english
-Dir=C:\Program Files\SCAP Compliance Checker $sccVersion
-Group=SCAP Compliance Checker $sccVersion
+Dir=C:\Program Files\SCAP Compliance Checker $SccVersion
+Group=SCAP Compliance Checker $SccVersion
 NoIcons=0
 SetupType=custom
 Components=core,Content\NIST_USGCB_SCAP_Content,Content\DISA_STIG_SCAP_Content 
 Task=
 "@
 
-$sccLic = @"
+$SccLic = @"
   --------------------    TERMS OF USE    -----------------------
   
   IN NO EVENT SHALL THE UNITED STATES NAVY (OR GOVERNMENT) OR ANY 
@@ -53,28 +53,27 @@ $sccLic = @"
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 # Print the license agreement itself 
-$sccLic | Write-Host -ForegroundColor Yellow
+$SccLic | Write-Host -ForegroundColor Yellow
 
 # Unzip the package
-$unzipArgs = @{
-  packageName   = $env:ChocolateyPackageName
-  unzipLocation = $sccUnzipDir
-  url           = $url
-  checksum      = $sccZipCheckSum
-  checksumType  = 'sha256'
+$UnzipArgs = @{
+  PackageName   = $env:ChocolateyPackageName
+  UnzipLocation = $SccUnzipDir
+  Url           = $Url
+  Checksum      = $SccZipCheckSum
+  ChecksumType  = 'sha256'
 }
-Install-ChocolateyZipPackage @unzipArgs
+Install-ChocolateyZipPackage @UnzipArgs
 
 # Add the inf-file
-$sccSilentFilecontent | Out-File -FilePath $sccSilentFilePath -Encoding ASCII -Force
+$SccSilentFilecontent | Out-File -FilePath $SccSilentFilePath -Encoding ASCII -Force
 
 # Install
-$packageArgs = @{
-  packageName   = $env:ChocolateyPackageName
-  file          = $sccInstallExe
-  softwareName  = "SCAP Compliance Checker $sccVersion"
-
-  silentArgs    = "/LOADINF=""$sccSilentFilePath"" /VERYSILENT /SUPPRESSMSGBOXES"
-  validExitCodes= @(0, 3010, 1641)
+$PackageArgs = @{
+  PackageName   = $env:ChocolateyPackageName
+  File          = $SccInstallExe
+  SoftwareName  = "SCAP Compliance Checker $SccVersion"
+  SilentArgs    = "/LOADINF=""$SccSilentFilePath"" /VERYSILENT /SUPPRESSMSGBOXES"
+  ValidExitCodes= @(0, 3010, 1641)
 }
-Install-ChocolateyInstallPackage @packageArgs
+Install-ChocolateyInstallPackage @PackageArgs
