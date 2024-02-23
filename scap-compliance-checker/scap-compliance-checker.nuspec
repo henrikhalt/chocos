@@ -7,9 +7,9 @@
     <authors>Naval Information Warfare Center (NIWC) Atlantic</authors>
     <owners>henrikhalt</owners>
     <packageSourceUrl>https://github.com/henrikhalt/chocos/tree/master/scap-compliance-checker</packageSourceUrl>
-    <projectUrl>https://www.niwcatlantic.navy.mil/scap/</projectUrl>
+    <projectUrl>https://www.niwcatlantic.navy.mil/Technology/SCAP/SCAP-Tutorial-Videos/</projectUrl>
     <docsUrl>https://www.niwcatlantic.navy.mil/scap/videos/</docsUrl>
-    <licenseUrl>https://www.niwcatlantic.navy.mil/wp-content/uploads/2021/04/SSC_EndUserLicense.txt</licenseUrl>
+    <licenseUrl>https://www.niwcatlantic.navy.mil/Portals/94/Page-Content/SCAP/SSC_EndUserLicense.txt?ver=kV_xdsbtdu8QamUhtjldMw%3d%3d</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <releaseNotes>https://dl.dod.cyber.mil/wp-content/uploads/stigs/txt/SCC_5.8_ReleaseNotes.txt</releaseNotes>
     <tags>SCC SCAP SECURITY COMPLIANCE CHECKER STIG</tags>
