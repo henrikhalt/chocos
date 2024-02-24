@@ -13,8 +13,14 @@
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <releaseNotes>https://dl.dod.cyber.mil/wp-content/uploads/stigs/txt/SCC_5.8_ReleaseNotes.txt</releaseNotes>
     <tags>SCC SCAP SECURITY COMPLIANCE CHECKER STIG</tags>
-    <summary>SCAP Compliance Checker is a SCAP 1.3 compliant security scanner</summary>
-    <description>SCAP Compliance Checker is a SCAP 1.3 compliant security scanner</description>
+    <summary>SCAP Compliance Checker is a free SCAP 1.0, 1.1, 1.2 and 1.3 compliant security scanner developed by Naval Information Warfare Center (NIWC) Atlantic</summary>
+    <description>Security Content Automation Protocol (SCAP) Compliance Checker is a SCAP Validated Authenticated Configuration Scanner, with support for SCAP versions 1.0, 1.1, 1.2 and 1.3.
+    Primary Features: 
+Performs authenticated configuration scanning using SCAP content
+Supports local and remote scanning of Windows and Linux/Solaris/Mac OS X
+Supports Cisco IOS and IOS XE with offline configuration scanning and SSH based scanning
+Has graphical and command line interfaces
+Native executables per platform</description>
     <dependencies>
       <dependency id="dotnetfx" version="4.5" />
     </dependencies>
