@@ -1,6 +1,6 @@
 ﻿# version specific vars
-$Lc0Version         = '0.30.0'
-$Lc0Checksum        = '49E8E76CD7D8A62172B49BC7BF80BA2B26D07F3D550BFD51F49D6D479DB2CAA5'
+$Lc0Version         = '0.31.1'
+$Lc0Checksum        = '2779474909E7F84938B50BBEC90AC4A5E2BB4BF09911C9F242D32EE26D8D925D'
 
 # non-version specific vars
 $Lc0ChecksumType    = 'SHA256'

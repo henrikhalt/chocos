@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>lc0-cuda</id>
-    <version>0.30.0</version>
+    <version>0.31.1</version>
     <owners>henrikhalt</owners>
     <title>Leela Chess Zero for Nvidia-Cuda (Install)</title>
     <authors>The LCZero Community</authors>

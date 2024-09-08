@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>chess-package</id>
+    <version>0.1</version>
+    <owners>henrikhalt</owners>
+    <title>Chess Package (Install)</title>
+    <authors>henrikhalt (https://github.com/henrikhalt)</authors>
+    <projectUrl>https://github.com/henrikhalt/chocos/chess-package/</projectUrl>
+    <!-- <licenseUrl></licenseUrl> -->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/henrikhalt/chocos/chess-package/</projectSourceUrl>
+    <!-- <docsUrl></docsUrl> -->
+    <!-- <bugTrackerUrl></bugTrackerUrl> -->
+    <tags>uci uci-compliant chess engine chessengine chesscomputer computerchess</tags>
+    <packageSourceUrl>https://github.com/henrikhalt/chocos/chess-package/</packageSourceUrl>
+    <summary>A Collection of Chess-related packages</summary>
+    <description>Chess Package is just a collection if dependencies to other packages, to easily install a set of chess related packages. Chess Package does not have any software in itself.
+    Currently, Chess Package contains: 
+        - Banksia GUI (banksiagui) chess GUI
+        - Leela Chess Zero for Nvidia-Cuda (lc0-cuda) chess engine
+        - Stockfish (stockfish) chess engine
+    </description>
+    <releaseNotes></releaseNotes>
+    <copyright></copyright>
+    <dependencies>
+      <!-- this defines what get's installed when installing chess-package, as chess-package is just a set of dependencies -->
+      <dependency id="banksiagui" />
+      <dependency id="lc0-cuda" />
+      <dependency id="stockfish" />
+      <!--  <dependency id="dotnetfx" version="4.5" />  -->
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- this section controls what actually gets packaged into the Chocolatey package -->
+    <file src="tools\**" target="tools" />
+  </files>
+</package>
