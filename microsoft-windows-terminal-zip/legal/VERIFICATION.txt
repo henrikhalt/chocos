@@ -1,0 +1,14 @@
+VERIFICATION
+LICENSE.txt is obtained from <https://github.com/microsoft/terminal/blob/main/LICENSE>
+
+The zip is downloaded from Microsofts official releases on Github <https://github.com/microsoft/terminal/releases>
+and can be verified as follows:
+
+1. Under releases, find Assets. Download the x64 zip: <https://github.com/microsoft/terminal/releases/download/v1.22.10352.0/Microsoft.WindowsTerminal_1.22.10352.0_x64.zip>
+2. Use powershell function 'Get-Filehash -Path .\Microsoft.WindowsTerminal_1.22.10352.0_x64.zip -Algorithm SHA256'
+
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+SHA256          C2CF549A567F60DAF291DC87D06F69E74935426E96A5ED0F04845D8ABE5504DD       ...\Microsoft.WindowsTerminal_1.22.10352.0_x64.zip
+
+
