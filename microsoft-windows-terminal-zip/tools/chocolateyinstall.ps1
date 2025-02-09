@@ -1,10 +1,10 @@
 ﻿# version specific vars
-$WTVersion       = 'v1.22.10352.0'
+$WTVersion       = '1.22.10352.0'
 $WTChecksum      = 'C2CF549A567F60DAF291DC87D06F69E74935426E96A5ED0F04845D8ABE5504DD'
 
 # non-version specific vars
 $WTChecksumType  = 'SHA256'
-$WTUrl           = "https://github.com/microsoft/terminal/releases/download/$($WTVersion)/Microsoft.WindowsTerminal_$($WTVersion)_x64.zip"
+$WTUrl           = "https://github.com/microsoft/terminal/releases/download/v$($WTVersion)/Microsoft.WindowsTerminal_$($WTVersion)_x64.zip"
 
 # The zip-installation is a zip file to extract to the Program Files folder.
 $InstallChocolateyZipPackageParams = @{
