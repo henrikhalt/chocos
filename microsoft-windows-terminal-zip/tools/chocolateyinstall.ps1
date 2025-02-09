@@ -17,7 +17,7 @@ $InstallChocolateyZipPackageParams = @{
 Install-ChocolateyZipPackage @InstallChocolateyZipPackageParams
 
 # the files should now be in $env:temp\Microsoft.WindowsTerminal_$($WTVersion)_x64\terminal-$($WTVersion)\
-$WTSourceRootPath = Join-Path -Path $env:Temp -ChildPath "chocolatey\terminal-$($WTVersion)"
+$WTSourceRootPath = Join-Path -Path $env:Temp -ChildPath "terminal-$($WTVersion)"
 $WTTargetRootPath = Join-Path -Path $env:ProgramFiles -ChildPath 'WindowsTerminal'
 $WTTargetPath = Join-Path -Path $WTTargetRootPath -ChildPath 'WindowsTerminal.exe'
 
