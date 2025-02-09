@@ -6,7 +6,7 @@
     <version>1.22.10352.0</version>
     <owners>Henrik Halt</owners>
     <!-- == SOFTWARE SPECIFIC SECTION == -->
-    <title>Windows Terminal (zip)</title>
+    <title>Windows Terminal</title>
     <authors>Microsoft Corporation</authors>
     <!-- projectUrl is required for the community feed -->
     <projectUrl>https://github.com/microsoft/terminal</projectUrl>
@@ -27,12 +27,12 @@ This edition of the Windows Terminal chocolatey package is an alternative to the
 
 This package will focus on stability and reliability, so it can be used in automations, like packer images, ansible playbooks, dsc, etc. 
 
-As this is a zip extraction only-install, the install is very simple and safe. 
+As this is a zip extraction only-install, the install is, unlike the appx-version, reliable. 
 
-The zip-install has a few limitations, documented by Microsoft on https://learn.microsoft.com/nb-no/windows/terminal/distributions, including:
+The drawback is that there are limitations, documented on https://learn.microsoft.com/nb-no/windows/terminal/distributions, including:
 
-- It will not get automatic updates
-- You cannot select Windows Terminal as the default terminal application
+- It will NOT get automatic updates
+- You cannot select Windows Terminal as the default terminal application in settings
 - You don't get the "Open in Terminal" context menu item
 
 ### OS Support

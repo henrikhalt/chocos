@@ -3,10 +3,13 @@ $WTVersion       = '1.22.10352.0'
 $WTChecksum      = 'C2CF549A567F60DAF291DC87D06F69E74935426E96A5ED0F04845D8ABE5504DD'
 
 # non-version specific vars
-$WTChecksumType  = 'SHA256'
-$WTUrl           = "https://github.com/microsoft/terminal/releases/download/v$($WTVersion)/Microsoft.WindowsTerminal_$($WTVersion)_x64.zip"
+$WTChecksumType   = 'SHA256'
+$WTUrl            = "https://github.com/microsoft/terminal/releases/download/v$($WTVersion)/Microsoft.WindowsTerminal_$($WTVersion)_x64.zip"
+$WTSourceRootPath = Join-Path -Path $env:Temp -ChildPath "terminal-$($WTVersion)"
+$WTTargetRootPath = Join-Path -Path $env:ProgramFiles -ChildPath 'WindowsTerminal'
+$WTTargetPath     = Join-Path -Path $WTTargetRootPath -ChildPath 'WindowsTerminal.exe'
 
-# The zip-installation is a zip file to extract to the Program Files folder.
+# The zip-installation is a zip file to extract to the Program Files folder. However, at the root of the zip is a folder named terminal-$($WTVersion)
 $InstallChocolateyZipPackageParams = @{
     PackageName    = $env:ChocolateyPackageName
     UnzipLocation  = $env:Temp
@@ -16,16 +19,12 @@ $InstallChocolateyZipPackageParams = @{
 }
 Install-ChocolateyZipPackage @InstallChocolateyZipPackageParams
 
-# the files should now be in $env:temp\Microsoft.WindowsTerminal_$($WTVersion)_x64\terminal-$($WTVersion)\
-$WTSourceRootPath = Join-Path -Path $env:Temp -ChildPath "terminal-$($WTVersion)"
-$WTTargetRootPath = Join-Path -Path $env:ProgramFiles -ChildPath 'WindowsTerminal'
-$WTTargetPath = Join-Path -Path $WTTargetRootPath -ChildPath 'WindowsTerminal.exe'
-
 # remove any previous installation
 if(Test-Path -Path $WTTargetRootPath -ErrorAction Ignore) {
     Remove-Item -Path $WTTargetRootPath -Recurse -Force | Out-Null
 }
 Copy-Item -Path $WTSourceRootPath -Destination $WTTargetRootPath -Recurse -Force | Out-Null
+Write-Host "Deployment moved to $($env:ProgramFiles)\WindowsTerminal"
 
 # add the WindowsTerminal folder to $env:Path
 $PathType = [System.EnvironmentVariableTarget]::Machine
