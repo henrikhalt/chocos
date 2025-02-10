@@ -9,6 +9,20 @@ $WTSourceRootPath = Join-Path -Path $env:Temp -ChildPath "terminal-$($WTVersion)
 $WTTargetRootPath = Join-Path -Path $env:ProgramFiles -ChildPath 'WindowsTerminal'
 $WTTargetPath     = Join-Path -Path $WTTargetRootPath -ChildPath 'WindowsTerminal.exe'
 
+# not in use p.t., but may be useful when we discover os specific requirements
+# Get the windows version. We need version number with build, and the "CaptionVersion", like 10, 11, 12(?) 2019, 2022, 2025 etc
+$WinType=[PSObject]@{
+    Version = [Environment]::OSVersion.Version
+    CaptionVersion = ''
+}
+$OSCaption = (Get-CimInstance -ClassName Win32_OperatingSystem).Caption; Write-Verbose "OSCaption: $OSCaption"
+if ($OSCaption -match "\b(10|11|12|2019|2022|2025)\b") {
+    $WinType.CaptionVersion = $matches[0]
+}
+else {
+    throw "Windows Terminal does not support $OSCaption."
+}
+ 
 # The zip-installation is a zip file to extract to the Program Files folder. However, at the root of the zip is a folder named terminal-$($WTVersion)
 $InstallChocolateyZipPackageParams = @{
     PackageName    = $env:ChocolateyPackageName
