@@ -2,48 +2,38 @@
 <!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
-    <id>microsoft-windows-terminal-zip</id>
+    <id>microsoft-windows-terminal-for-servers</id>
     <version>1.22.10352.0</version>
     <owners>Henrik Halt</owners>
     <!-- == SOFTWARE SPECIFIC SECTION == -->
-    <title>Windows Terminal (zip-version)</title>
+    <title>Windows Terminal (for servers)</title>
     <authors>Microsoft Corporation</authors>
     <!-- projectUrl is required for the community feed -->
     <projectUrl>https://github.com/microsoft/terminal</projectUrl>
     <iconUrl>https://img.icons8.com/?size=100&amp;id=WbRVMGxHh74X&amp;format=png&amp;color=000000</iconUrl>
     <copyright>Microsoft Corporation</copyright>
-    <tags>microsoft-windows-terminal terminal windows-terminal-server-2022 windows-terminal-server-2019 windows-terminal-windows-11 windows-terminal-windows-10</tags>
+    <tags>microsoft-windows-terminal terminal windows server windows-terminal-server-2022 windows-terminal-server-2019</tags>
     <releaseNotes>https://github.com/microsoft/terminal/releases</releaseNotes>
     <licenseUrl>https://github.com/microsoft/terminal/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <packageSourceUrl>https://github.com/henrikhalt/chocos/tree/master/microsoft-windows-terminal-zip</packageSourceUrl>
+    <packageSourceUrl>https://github.com/henrikhalt/chocos/tree/master/microsoft-windows-terminal-for-servers</packageSourceUrl>
     <docsUrl>https://github.com/microsoft/terminal/tree/master/doc</docsUrl>
     <projectSourceUrl>https://github.com/microsoft/terminal</projectSourceUrl>
     <bugTrackerUrl>https://github.com/microsoft/terminal/issues</bugTrackerUrl>
     <summary>Windows Terminal</summary>
-    <description><![CDATA[## Windows Terminal (zip-version)
+    <description><![CDATA[## Windows Terminal (for servers)
 
-This edition of the Windows Terminal chocolatey package is an alternative to the appx-based package, based on the x64-zip published alongside the appx-version on Microsofts official Windows Terminal Github releases page https://github.com/microsoft/terminal/releases.
+Since the chocolatey package 'microsoft-windows-terminal' is not available for Windows Server (and hardly works on Windows clients either), there is a need for a sperate package that tries to be installable on Windows Server.
 
-This package will focus on stability and reliability, so it can be used in automations, like packer images, ansible playbooks, dsc, etc. 
-
-As this is a zip extraction only-install, the install is, unlike the appx-version, reliable. 
-
-The drawback is that there are limitations, documented on https://learn.microsoft.com/nb-no/windows/terminal/distributions, including:
-
-- It will NOT get automatic updates
-- You cannot select Windows Terminal as the default terminal application in settings
-- You don't get the "Open in Terminal" context menu item
-
-### OS Support
-
-This package should work on any Windows version that supports Windows Terminal, including Windows 11, Windows 10, Windows Server 2022 and Windows Server 2019. 
+This package uses the appx-package concept. It is tested on Windows Server 2022.
 
 If you have issues starting the terminal on any of these platforms, [submit an issue on my Github](https://github.com/henrikhalt/chocos/issues), and I will add platform specific requirements.
 ]]></description>
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
     <dependencies>
       <dependency id="vcredist140" />
+      <dependency id="microsoft-vclibs-140-00" />
+      <dependency id="microsoft-ui-xaml" />
     </dependencies>
   </metadata>
   <!-- this section controls what actually gets packaged into the Chocolatey package -->
