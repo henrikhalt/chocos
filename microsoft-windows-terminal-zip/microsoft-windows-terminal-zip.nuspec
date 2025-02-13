@@ -37,7 +37,7 @@ The drawback is that there are limitations, documented on https://learn.microsof
 
 ### OS Support
 
-This package should work on any Windows version that supports Windows Terminal, including Windows 11, Windows 10, Windows Server 2022 and Windows Server 2019. 
+This package should work on any Windows build 18362.x+, including Windows 11, Windows 10 and Windows Server 2022 and later. 
 
 If you have issues starting the terminal on any of these platforms, [submit an issue on my Github](https://github.com/henrikhalt/chocos/issues), and I will add platform specific requirements.
 ]]></description>

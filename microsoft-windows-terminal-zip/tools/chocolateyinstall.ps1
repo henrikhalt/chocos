@@ -14,12 +14,15 @@ $WinType=[PSObject]@{
     Version = [Environment]::OSVersion.Version
     CaptionVersion = ''
 }
-$OSCaption = (Get-CimInstance -ClassName Win32_OperatingSystem).Caption; Write-Verbose "OSCaption: $OSCaption"
-if ($OSCaption -match "\b(10|11|12|2019|2022|2025)\b") {
+$OSCaption = (Get-CimInstance -ClassName Win32_OperatingSystem).Caption
+if ($OSCaption -match "\b(10|11|12|2022|2025)\b") {
     $WinType.CaptionVersion = $matches[0]
 }
 else {
     throw "Windows Terminal does not support $OSCaption."
+}
+if ($WinType.Version.Build -lt "18362") {
+    throw "Windows Terminal requires Windows build 18362 or higher."
 }
 
 # The zip-installation is a zip file to extract to the Program Files folder. 
