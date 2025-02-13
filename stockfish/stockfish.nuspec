@@ -2,7 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>stockfish</id>
-    <version>16.0</version>
+    <!-- the stockfish version is actually '17', but choco's automated tests requires a.b.c -->
+    <version>17.0.0</version>
     <owners>henrikhalt</owners>
     <title>stockfish (Install)</title>
     <authors>Tord Romstad, Marco Costalba, Joona Kiiski and the Stockfish community</authors>
@@ -16,7 +17,7 @@
     <packageSourceUrl>https://github.com/henrikhalt/chocos/tree/master/stockfish</packageSourceUrl>
     <summary>Strong open source chess engine</summary>
     <description>The Stockfish project started with the open source Glaurung engine, authored by Tord Romstad. In November 2008, Marco Costalba forked the Glaurung 2.1 code and introduced Stockfish 1.0. Tord and Joona Kiiski joined the Stockfish project and the Glaurung project slowly faded away. Meanwhile, Stockfish quickly rose to become the strongest open source chess engine, with frequent updates every few months. Today, it remains one of the strongest engines in the world.</description>
-    <releaseNotes>https://stockfishchess.org/blog/2023/stockfish-16/</releaseNotes>
+    <releaseNotes>https://stockfishchess.org/blog/2024/stockfish-17/</releaseNotes>
     <copyright>https://github.com/official-stockfish/Stockfish/blob/master/Copying.txt</copyright>
   </metadata>
   <files>

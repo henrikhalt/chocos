@@ -1,5 +1,5 @@
-﻿$SccVersion            = '5.10'
-$SccZipCheckSum        = 'F5ED7CAF6485A77889CF8EDC65635D8348DFC49D22B4CE087A44017BBC914F77'
+﻿$SccVersion            = '5.10.1'
+$SccZipCheckSum        = 'AC84A07C03CEF3106786180518FC0A1A184B8B86333B5533263116D0BC0FAA33'
 
 $ErrorActionPreference = 'Stop';
 $SccUnzipDir           = Join-Path -Path $env:TEMP -ChildPath 'NIWCASCC'

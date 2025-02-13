@@ -5,11 +5,10 @@ $WTChecksum      = 'C2CF549A567F60DAF291DC87D06F69E74935426E96A5ED0F04845D8ABE55
 # non-version specific vars
 $WTChecksumType   = 'SHA256'
 $WTUrl            = "https://github.com/microsoft/terminal/releases/download/v$($WTVersion)/Microsoft.WindowsTerminal_$($WTVersion)_x64.zip"
-$WTSourceRootPath = Join-Path -Path $env:Temp -ChildPath "terminal-$($WTVersion)"
 $WTTargetRootPath = Join-Path -Path $env:ProgramFiles -ChildPath 'WindowsTerminal'
-$WTTargetPath     = Join-Path -Path $WTTargetRootPath -ChildPath 'WindowsTerminal.exe'
+$WTTargetSubPath  = Join-Path -Path $WTTargetRootPath -ChildPath "terminal-$($WTVersion)"
+$WTTargetPath     = Join-Path -Path $WTTargetSubPath -ChildPath 'WindowsTerminal.exe'
 
-# not in use p.t., but may be useful when we discover os specific requirements
 # Get the windows version. We need version number with build, and the "CaptionVersion", like 10, 11, 12(?) 2019, 2022, 2025 etc
 $WinType=[PSObject]@{
     Version = [Environment]::OSVersion.Version
@@ -22,33 +21,55 @@ if ($OSCaption -match "\b(10|11|12|2019|2022|2025)\b") {
 else {
     throw "Windows Terminal does not support $OSCaption."
 }
- 
-# The zip-installation is a zip file to extract to the Program Files folder. However, at the root of the zip is a folder named terminal-$($WTVersion)
-$InstallChocolateyZipPackageParams = @{
-    PackageName    = $env:ChocolateyPackageName
-    UnzipLocation  = $env:Temp
-    Url            = $WTUrl
-    Checksum       = $WTChecksum
-    ChecksumType   = $WTChecksumType
-}
-Install-ChocolateyZipPackage @InstallChocolateyZipPackageParams
 
-# remove any previous installation
-if(Test-Path -Path $WTTargetRootPath -ErrorAction Ignore) {
-    Remove-Item -Path $WTTargetRootPath -Recurse -Force | Out-Null
-}
-Copy-Item -Path $WTSourceRootPath -Destination $WTTargetRootPath -Recurse -Force | Out-Null
-Write-Host "Deployment moved to $($env:ProgramFiles)\WindowsTerminal"
+# The zip-installation is a zip file to extract to the Program Files folder. 
+try {
+    $InstallChocolateyZipPackageParams = @{
+        PackageName    = $env:ChocolateyPackageName
+        UnzipLocation  = $WTTargetRootPath
+        Url            = $WTUrl
+        Checksum       = $WTChecksum
+        ChecksumType   = $WTChecksumType
+        ErrorAction    = 'Stop'
+    }
+    Install-ChocolateyZipPackage @InstallChocolateyZipPackageParams
 
-# add the WindowsTerminal folder to $env:Path
-$PathType = [System.EnvironmentVariableTarget]::Machine
-Install-ChocolateyPath -PathToInstall $WTTargetRootPath -PathType $PathType
+    # add the "terminal-$($WTVersion)" folder to $env:Path 
+    Install-ChocolateyPath -PathToInstall $WTTargetSubPath -PathType 'Machine'
 
-# create a shortcut in the Start Menu
-$InstallChocolateyShortcutParams = @{
-    ShortcutFilePath = Join-Path -Path $env:ProgramData -ChildPath 'Microsoft\Windows\Start Menu\Programs\Windows Terminal.lnk'
-    TargetPath       = $WTTargetPath
-    IconLocation     = $WTTargetPath
-    Description      = "Microsoft Windows Terminal"
+    # create a shortcut in the Start Menu and pin to taskbar
+    $InstallChocolateyShortcutParams = @{
+        ShortcutFilePath = Join-Path -Path $env:ProgramData -ChildPath 'Microsoft\Windows\Start Menu\Programs\Windows Terminal.lnk'
+        TargetPath       = $WTTargetPath
+        IconLocation     = $WTTargetPath
+        PinToTaskbar     = $true
+        Description      = "Microsoft Windows Terminal"
+    }
+    Install-ChocolateyShortcut @InstallChocolateyShortcutParams
+
+    
+    # if the above worked, remove any previous installation
+    $OldVersions = @(Get-ChildItem -Path $WTTargetRootPath -Directory | Where-Object {
+        $_.Name -match "terminal-" -and $_.Name -ne "terminal-$($WTVersion)"
+    })
+    if($OldVersions.count -gt 0) {
+        foreach($OldVersion in $OldVersions) {
+            # remove the folder
+            Remove-Item -Path $OldVersion.FullName -Recurse -Force | Out-Null
+            
+            # Remove the old path from the $env:Path machine variable.
+            # 1. if the old path ended with a \, we may have a ";\;". If it didn't, we may how a double ;;
+            # 2. if the path was at the end, we may have a trailing ;\ or a trailing ;
+            # 3. if the path was at the start, we may have a leading ; or a leading \; 
+            $NewPath = $env:Path -replace [regex]::escape($OldVersion.FullName), ''
+            $NewPath = ($NewPath -replace ';\\;', ';') -replace ';;', ';'           # 1
+            $NewPath = ($NewPath -replace ';\\$', '') -replace ';$', ''             # 2 
+            $NewPath = ($NewPath -replace '^\\;', '') -replace '^;', ''             # 3 
+            # set the new path
+            [System.Environment]::SetEnvironmentVariable("Path", $NewPath, [System.EnvironmentVariableTarget]::Machine)
+        }
+    }
 }
-Install-ChocolateyShortcut @InstallChocolateyShortcutParams
+catch {
+    throw $_
+}

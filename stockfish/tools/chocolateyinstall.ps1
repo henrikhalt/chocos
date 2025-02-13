@@ -1,6 +1,6 @@
 ﻿# version specific vars
-$StockFishVersion       = '16'
-$StockFishChecksum      = '93F7095C3EE370E8D8FC90BA9AF995001578F0339ED43CF963B9D5B4246FFD58'
+$StockFishVersion       = '17'
+$StockFishChecksum      = '918EF7568B23D5F1A22EC188EEFE7A2B19AA2FC81F132BAFC60C58669C1B7D12'
 
 # non-version specific vars
 $StockFishChecksumType  = 'SHA256'
