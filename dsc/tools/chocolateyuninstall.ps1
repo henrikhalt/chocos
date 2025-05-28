@@ -8,20 +8,5 @@ $RemoveArgs = @{
 }
 Remove-Item @RemoveArgs
 
-#! The uninstall-ChocolateyPath is documented, but not implemented? 
-# Uninstall-ChocolateyPath -PathToUninstall $DSCv3InstallPath -PathType 'Machine'
-
-#! Manual removal from PATH machine variable.
-# Get the Machine Path from the Registry ($env:Path mixes user and machine paths - we don't want to duplicate user paths into machine paths)
-$MachinePath = [System.Environment]::GetEnvironmentVariable("Path", [System.EnvironmentVariableTarget]::Machine)
-
-# Remove the specific path from the Machine Path
-$NewPath = $MachinePath -replace [regex]::escape($DSCv3InstallPath), ''
-
-# Clean up formatting
-$NewPath = ($NewPath -replace ';\\;', ';') -replace ';;', ';' 
-$NewPath = ($NewPath -replace ';\\$', '') -replace ';$', ''  
-$NewPath = ($NewPath -replace '^\\;', '') -replace '^;', ''  
-
-# Set the updated Machine Path
-[System.Environment]::SetEnvironmentVariable("Path", $NewPath, [System.EnvironmentVariableTarget]::Machine)
+# Remove the path from  
+Uninstall-ChocolateyPath -PathToUninstall $DSCv3InstallPath -PathType 'Machine'
