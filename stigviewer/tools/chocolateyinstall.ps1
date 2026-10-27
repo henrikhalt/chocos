@@ -1,5 +1,5 @@
-﻿$StigvVersion      = '3-4-0'
-$StigvChecksum     = '82F86FB562F4751F1443D7838EA0FC0819422C76890B403174CD881149057C91'
+﻿$StigvVersion      = '3-8-1'
+$StigvChecksum     = '5407F3F94CE89A48D74A83043D7220BD2A9B8874E1418A9FE706089C1EC1B8ED'
 $StigvChecksumType = 'SHA256'
 $StigvUrl          = "https://dl.dod.cyber.mil/wp-content/uploads/stigs/zip/U_STIGViewer-win32_x64-$($StigvVersion).zip"  # <-- the format of the file name keeps changing...
 $Tools             = Split-Path -Parent $MyInvocation.MyCommand.Definition

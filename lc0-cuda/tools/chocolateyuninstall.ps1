@@ -1,5 +1,5 @@
 ﻿# version specific vars
-$Lc0Version         = '0.30.0'
+$Lc0Version = '0.32.0'
 
 # non-version specific vars
 $ChessEnginesFolder = Join-Path -Path $env:ProgramFiles -ChildPath 'ChessEngines'

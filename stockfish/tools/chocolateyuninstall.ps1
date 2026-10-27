@@ -1,5 +1,5 @@
 ﻿# version specific vars
-$StockFishVersion       = '17'
+$StockFishVersion       = '17.1'
 
 # non-version specific vars
 $ChessEnginesFolder     = Join-Path -Path $env:ProgramFiles -ChildPath 'ChessEngines'

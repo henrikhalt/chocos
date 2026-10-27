@@ -1,10 +1,10 @@
 ﻿# version specific vars
-$Lc0Version         = '0.31.1'
-$Lc0Checksum        = '2779474909E7F84938B50BBEC90AC4A5E2BB4BF09911C9F242D32EE26D8D925D'
+$Lc0Version         = '0.32.0'
+$Lc0Checksum        = '92eae73dd4f6752310c174b9d67e9dae81c6a80c75673aaf8e5529b8d3477981'
 
 # non-version specific vars
 $Lc0ChecksumType    = 'SHA256'
-$Lc0Url             = "https://github.com/LeelaChessZero/lc0/releases/download/v$Lc0Version/lc0-v$Lc0Version-windows-gpu-nvidia-cuda.zip"
+$Lc0Url             = "https://github.com/LeelaChessZero/lc0/releases/download/v$Lc0Version/lc0-v$Lc0Version-windows-gpu-nvidia-cuda11.zip"
 $ChessEnginesFolder = Join-Path -Path $env:ProgramFiles -ChildPath 'ChessEngines'
 $Lc0InstallFolder   = Join-Path -Path $ChessEnginesFolder -ChildPath "lc0_$Lc0Version"
 
